@@ -121,7 +121,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
                 data.forEach(branch => {
                     branchesList.innerHTML += `<div class='service-item'>
                         ${branch.branch_name} - ${branch.branch_location} (Buka: ${branch.opening_time} Tutup: ${branch.closing_time})
-                        <button onclick="hapusCabang(${branch.branch_id})">Hapus</button>
+                        <button class="btnHapus" onclick="hapusCabang(${branch.branch_id})">Hapus</button>
                     </div>`;
                     branchSelect.innerHTML += `<option value="${branch.branch_id}">${branch.branch_name}</option>`;
                 });
@@ -175,7 +175,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
                     if (service.service_id && !isNaN(service.service_id) && service.service_id > 0) {
                         servicesList.innerHTML += `<div class='service-item'>
                             ${service.service_name} - ${service.duration} menit (${service.branch_name})
-                            <button onclick="hapusLayanan(${service.service_id})">Hapus</button>
+                            <button class="btnHapus" onclick="hapusLayanan(${service.service_id})">Hapus</button>
                         </div>`;
                     } else {
                         console.error("Invalid service ID:", service.service_id); // Debugging: Log invalid service ID
@@ -224,7 +224,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
                 data.forEach(reservation => {
                     reservationsList.innerHTML += `<div class='service-item'>
                         ${reservation.name} - ${reservation.service} di ${reservation.branch_name} pada ${reservation.datetime}
-                        <button onclick="selesaikanReservasi(${reservation.id})">Selesai</button>
+                        <button class="btnHapus" onclick="selesaikanReservasi(${reservation.id})">Selesai</button>
                     </div>`;
                 });
             })

@@ -101,37 +101,46 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'customer') {
             fetch('Function/get_services.php?branch_id=' + branchId)
             .then(response => response.json())
             .then(data => {
+                console.log("Services data received:", data); // Debugging: Log the services data
                 const servicesList = document.getElementById('services_list');
                 const serviceSelect = document.getElementById('res-service');
                 servicesList.innerHTML = '';
                 serviceSelect.innerHTML = '';
                 data.forEach(service => {
+                    console.log("Processing service:", service); // Debugging: Log each service object
                     servicesList.innerHTML += `<div class='service-item'>${service.service_name} - ${service.duration} menit (${service.branch_name})</div>`;
-                    serviceSelect.innerHTML += `<option value="${service.name}">${service.service_name}</option>`;
+                    serviceSelect.innerHTML += `<option value="${service.service_name}">${service.service_name}</option>`;
                 });
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error fetching services:', error));
         }
 
         function fetchReservations() {
             fetch('Function/get_customer_reservations.php')
             .then(response => response.json())
             .then(data => {
+                console.log("Data fetched:", data); // Debugging: log data yang diterima
                 if (data.error) {
                     console.error('Error:', data.error);
                     return;
                 }
-                console.log(data); // Debugging: menampilkan data yang diterima di console
                 const reservationsList = document.getElementById('reservations_list');
                 reservationsList.innerHTML = '';
                 data.forEach(reservation => {
-                    reservationsList.innerHTML += `<div class='reservation-item'>${reservation.service} pada ${reservation.datetime}</div>`;
+                    reservationsList.innerHTML += `<div class='reservation-item'>${reservation.service_name} pada ${reservation.datetime}</div>`;
                 });
             })
             .catch(error => {
                 console.error('Error:', error); // Debugging: menampilkan error yang mungkin terjadi
             });
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            fetchBranches();
+            document.getElementById('res-branch').addEventListener('change', fetchServices);
+            fetchReservations();
+        });
+
 
         document.getElementById('reservation-form').addEventListener('submit', function(event) {
             event.preventDefault();
@@ -167,6 +176,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'customer') {
                 alert('Terjadi masalah dengan pengiriman data: ' + error.message);
             });
         });
+
     </script>
 </body>
 </html>

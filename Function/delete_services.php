@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $service_id = filter_input(INPUT_POST, 'service_id', FILTER_VALIDATE_INT);
     error_log("Service ID received after filter_input: " . $service_id); // Log the received ID after conversion
 
-    // Cek apakah service_id lebih besar dari 0
     if ($service_id > 0) {
         error_log("Valid service ID: " . $service_id); // Log for valid ID
         $query = "DELETE FROM services WHERE id = ?";

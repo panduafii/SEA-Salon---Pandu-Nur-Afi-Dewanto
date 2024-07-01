@@ -8,17 +8,21 @@ Deskripsi
 
 Fitur
 	•	Login/Registrasi Pengguna/Admin:
-	⁃	Pengguna dapat mendaftar sebagai pelanggan baru atau masuk ke akun mereka yang sudah ada.
-	⁃	Admin dapat melakukan login.
+		⁃	Pengguna dapat mendaftar sebagai pelanggan baru atau masuk ke akun mereka yang sudah ada.
+		⁃	Admin dapat melakukan login.
 	•	Dashboard Pelanggan:
-	⁃	Pelanggan dapat melihat layanan yang tersedia dan membuat reservasi baru.
-	⁃	Pelanggan dapat melihat daftar reservasi mereka.
+		⁃	Pelanggan dapat melihat layanan yang tersedia dan membuat reservasi baru.
+		⁃	Pelanggan dapat melihat daftar reservasi mereka.
 	•	Dashboard Admin:
-	⁃	Admin dapat menambah cabang baru
-	⁃	Admin dapat mengelola layanan yang akan ditawarkan oleh salon serta mengatur durasinya.
-	⁃	Admin dapat melihat daftar reservasi yang telah dibuat oleh pelanggan.
+		⁃	Admin dapat menambah cabang baru
+		⁃	Admin dapat mengelola layanan yang akan ditawarkan oleh salon serta mengatur durasinya.
+		⁃	Admin dapat melihat daftar reservasi yang telah dibuat oleh pelanggan.
+		⁃   Admin dapat menghapus cabang.
+		⁃   Admin dapat menghapus layanan.
+		⁃   Admin dapat memberi tanda selesai pada reservasi.
+
 	•	Pengambilan Data Asinkron:
-	⁃	Menggunakan JSON untuk pengambilan data cabang, layanan, dan reservasi secara asinkron melalui JavaScript.
+		⁃	Menggunakan JSON untuk pengambilan data cabang, layanan, dan reservasi secara asinkron melalui JavaScript.
 
 Teknologi yang Digunakan
 	•	HTML5
