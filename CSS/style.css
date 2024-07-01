@@ -1,0 +1,305 @@
+:root {
+    --bs-body-font-family: 'Roboto', sans-serif;
+    --bs-btn-hover-bg:#cddc39 !important;
+}
+
+/* Pengaturan Warna dan Font */
+body {
+    background-color: #1c1c1c; 
+    color: #ffffff;
+    font-family: var(--bs-body-font-family); 
+}
+
+header {
+    background-color: #ffffff; 
+    color: #cddc39; 
+    padding: 20px 0;
+    text-align: center;
+
+}
+
+header h1{
+    font-family: 'Branded Hand', cursive;
+    color:#93a112;
+}
+
+/* Styling untuk judul dan teks header */
+h1{
+    font-weight: 700;
+}
+
+h2 {
+    color: #00bcd4; 
+    font-weight: 700; 
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Styling untuk teks umum dan link */
+p, .card-text, a {
+    color: #E0E0E0; 
+    font-weight: 400; 
+}
+
+/* Penataan Kartu Layanan */
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px; 
+    background-color: #333333; 
+    border: none;
+    transition: transform 0.3s ease; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5); 
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    background-color: #eaeaea; 
+}
+
+.card img {
+    display: block; 
+    width: 100%; 
+    height: auto; 
+    border-bottom: 4px solid #cddc39;
+}
+
+.card .card-body .card-title {
+    color: #a6b803 !important; 
+}
+
+/* Card Reservation */
+div.register{
+    width: 100%;
+    background-color: rgb(246, 246, 246);
+}
+
+/* Reservation */
+
+.container a{
+    color: #cddc39 !important;
+    --bs-btn-hover-bg:#cddc39 !important;
+}
+
+a:hover{
+    color: #cddc39 !important;
+}
+
+#reservation {
+    background: #f4f4f4;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#reservation-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#reservation-form input[type="text"],
+#reservation-form input[type="tel"],
+#reservation-form select,
+#reservation-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+#reservation-form button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#reservation-form button:hover {
+    background-color: #45a049;
+}
+
+
+/* Review */
+
+button {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px; 
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+button:hover {
+    background-color: #0097a7; 
+    color: #ffffff; 
+}
+
+.b, strong{
+    color: #93a112;
+}
+
+#contact {
+    padding-left: 15px; 
+    padding-right: 15px; 
+    padding-top: 20px; 
+    padding-bottom: 20px; 
+    margin-top: 20px; 
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    margin-left: 0rem;
+    margin-right: 0rem;
+}
+
+#contact p {
+    color: #93a112; 
+}
+
+#reviews {
+    background: #f4f4f4;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px; 
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#review-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#review-form input[type="text"],
+#review-form select,
+#review-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+#review-form button {
+    background-color: #62b9d6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#review-form button:hover {
+    background-color: #9fd7ea;
+}
+
+.review-item {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px; 
+}
+
+/* Styling tambahan untuk memastikan kolom menempati seluruh lebar halaman */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#services {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row {
+    display: flex;
+}
+
+.col-md-6 {
+    flex: 1;
+    padding: 15px;
+}
+
+/* Tambahkan di akhir file CSS Anda atau di file CSS kustom Anda */
+@media (min-width: 768px) {
+    .custom-width-35 {
+        width: 35% !important;
+        flex: 0 0 35% !important;
+    }
+
+    .custom-width-65 {
+        width: 65% !important;
+        flex: 0 0 65% !important;
+    }
+}
+
+#reviews {
+    background: #f4f4f4;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+#review-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#review-form input[type="text"],
+#review-form select,
+#review-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 10px; 
+}
+
+#review-form button {
+
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+.review-item {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+
+}
+
+.review-item p{
+    color: rgb(71, 71, 71) !important;
+}
+
+.section .mt-5{
+    margin-left: 5rem !important;
+    padding-bottom: 2rem !important;
+    color: #93a112;
+}

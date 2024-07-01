@@ -1,0 +1,165 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+}
+h1, h2, h3 {
+    color: #444;
+}
+.TextDash {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+    margin-top: 60px;
+}
+.userWelcome{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #93a112;
+    height: 100px;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.form-group input,
+.form-group button {
+    width: 96%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.submitButton{
+    margin-left: 42%;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submitButton:hover{
+    background-color: rgb(185, 185, 185);
+}
+
+.form-group select{
+    width:99%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 40px;
+    background-color: #f2ff9b;
+    
+}
+
+
+.form-group button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.form-group button:hover {
+    background-color: #0056b3;
+}
+.service-item, .reservation-item {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+#reservation-result {
+    margin-top: 20px;
+    /* padding: 15px; */
+    background-color: #e9f7df;
+    border: 1px solid #d4edda;
+    color: #155724;
+    border-radius: 7px;
+}
+#reservation-result h4{
+    margin-left: 20px;
+}
+
+.Header h1{
+    font-family: 'Branded Hand', cursive;
+}
+
+.Header h1,p{
+    text-align: center;
+    color:  #93a112;
+    
+}
+
+.formLayanan{
+    background-color: #89f2ea;
+    padding: 10px;
+    border-radius: 10px;
+    color: #003060;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.formLayanan h3{
+    color: #003060;
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 30px;
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.formIsiLayanan{
+    background-color: #f7c6c7;
+    padding: 10px;
+    border-radius: 10px;
+    color: #600000;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.formReservasi{
+    background-color: #b2e7e3;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.formReservasi h3{
+    color: #003060;
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 30px;
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.formCabang{
+    background-color: #f7c6c7;
+    padding: 10px;
+    border-radius: 10px;
+    color: #600000;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.formCabang h3{
+    color: #600000;
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 30px;
+    font-style: normal;
+    font-weight: bolder;
+}
