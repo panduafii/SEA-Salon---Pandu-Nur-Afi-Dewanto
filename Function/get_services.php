@@ -3,7 +3,7 @@ include 'config.php';
 
 try {
     // Membuat statement
-    $stmt = $conn->prepare("SELECT services.service_name, services.duration, branches.branch_name FROM services JOIN branches ON services.branch_id = branches.branch_id");
+    $stmt = $conn->prepare("SELECT services.id AS service_id, services.service_name, services.duration, branches.branch_name FROM services JOIN branches ON services.branch_id = branches.branch_id");
     if (!$stmt) {
         throw new Exception("Failed to prepare statement: " . $conn->error);
     }
@@ -16,7 +16,8 @@ try {
     $services = [];
     while ($row = $result->fetch_assoc()) {
         $services[] = [
-            'name' => htmlspecialchars($row['service_name']),
+            'service_id' => htmlspecialchars($row['service_id']),
+            'service_name' => htmlspecialchars($row['service_name']),
             'duration' => htmlspecialchars($row['duration']),
             'branch_name' => htmlspecialchars($row['branch_name'])
         ];

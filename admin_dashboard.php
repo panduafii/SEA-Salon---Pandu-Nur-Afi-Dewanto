@@ -95,6 +95,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
             fetchReservations();
         });
 
+        // Cabang
         function addBranch() {
             var formData = new FormData(document.getElementById('branchForm'));
             fetch('Function/add_branch.php', {
@@ -104,7 +105,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
             .then(response => response.text())
             .then(data => {
                 alert(data);
-                fetchBranches(); // Refresh the list of branches
+                fetchBranches(); 
             })
             .catch(error => console.error('Error:', error));
         }
@@ -118,13 +119,36 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
                 const branchSelect = document.getElementById('branch_id');
                 branchSelect.innerHTML = '';
                 data.forEach(branch => {
-                    branchesList.innerHTML += `<div class='service-item'>${branch.name} - ${branch.location} (Buka: ${branch.opening_time} Tutup: ${branch.closing_time})</div>`;
-                    branchSelect.innerHTML += `<option value="${branch.id}">${branch.name}</option>`;
+                    branchesList.innerHTML += `<div class='service-item'>
+                        ${branch.branch_name} - ${branch.branch_location} (Buka: ${branch.opening_time} Tutup: ${branch.closing_time})
+                        <button onclick="hapusCabang(${branch.branch_id})">Hapus</button>
+                    </div>`;
+                    branchSelect.innerHTML += `<option value="${branch.branch_id}">${branch.branch_name}</option>`;
                 });
             })
             .catch(error => console.error('Error:', error));
         }
 
+        function hapusCabang(branch_id) {
+            if (confirm("Apakah Anda yakin ingin menghapus cabang ini?")) {
+                fetch('Function/delete_branch.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `branch_id=${branch_id}`
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    fetchBranches(); // Refresh the list of branches
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+
+
+        //Pelayanan
         function addService() {
             var formData = new FormData(document.getElementById('serviceForm'));
             fetch('Function/add_services.php', {
@@ -134,7 +158,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
             .then(response => response.text())
             .then(data => {
                 alert(data);
-                fetchServices(); // Refresh the list of services
+                fetchServices();
             })
             .catch(error => console.error('Error:', error));
         }
@@ -143,16 +167,54 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
             fetch('Function/get_services.php')
             .then(response => response.json())
             .then(data => {
-                console.log(data); // Debugging
+                console.log("Services data received:", data); // Debugging: Log the services data
                 const servicesList = document.getElementById('services_list');
                 servicesList.innerHTML = '';
                 data.forEach(service => {
-                    servicesList.innerHTML += `<div class='service-item'>${service.name} - ${service.duration} menit (${service.branch_name})</div>`;
+                    console.log("Processing service:", service); // Debugging: Log each service object
+                    if (service.service_id && !isNaN(service.service_id) && service.service_id > 0) {
+                        servicesList.innerHTML += `<div class='service-item'>
+                            ${service.service_name} - ${service.duration} menit (${service.branch_name})
+                            <button onclick="hapusLayanan(${service.service_id})">Hapus</button>
+                        </div>`;
+                    } else {
+                        console.error("Invalid service ID:", service.service_id); // Debugging: Log invalid service ID
+                    }
                 });
             })
-            .catch(error => console.error('Error:', error));
+            .catch(error => console.error('Error fetching services:', error));
         }
 
+        function hapusLayanan(service_id) {
+            console.log("Service ID to delete:", service_id); // Debugging: Log the ID
+
+            // Check if service_id is valid before sending the request
+            if (!service_id || isNaN(service_id) || service_id <= 0) {
+                alert("ID layanan tidak valid.");
+                return;
+            }
+
+            if (confirm("Apakah Anda yakin ingin menghapus layanan ini?")) {
+                fetch('Function/delete_services.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `service_id=${service_id}`
+                })
+                .then(response => response.text())
+                .then(data => {
+                    console.log("Response from server:", data); // Debugging: Log the response
+                    alert(data);
+                    fetchServices(); // Refresh the list of services
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+
+
+
+        // Reservasi
         function fetchReservations() {
             fetch('Function/get_reservation.php')
             .then(response => response.json())
@@ -160,10 +222,31 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
                 const reservationsList = document.getElementById('reservations_list');
                 reservationsList.innerHTML = '';
                 data.forEach(reservation => {
-                    reservationsList.innerHTML += `<div class='service-item'>${reservation.name} - ${reservation.service} di ${reservation.branch_name} pada ${reservation.datetime}</div>`;
+                    reservationsList.innerHTML += `<div class='service-item'>
+                        ${reservation.name} - ${reservation.service} di ${reservation.branch_name} pada ${reservation.datetime}
+                        <button onclick="selesaikanReservasi(${reservation.id})">Selesai</button>
+                    </div>`;
                 });
             })
             .catch(error => console.error('Error:', error));
+        }
+
+        function selesaikanReservasi(reservation_id) {
+            if (confirm("Apakah Anda yakin ingin menyelesaikan reservasi ini?")) {
+                fetch('Function/delete_reservation.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: `reservation_id=${reservation_id}`
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert(data);
+                    fetchReservations(); // Refresh the list of reservations
+                })
+                .catch(error => console.error('Error:', error));
+            }
         }
     </script>
 </body>

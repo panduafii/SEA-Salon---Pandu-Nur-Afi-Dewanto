@@ -1,5 +1,8 @@
 SEA Salon - Sistem Manajemen Salon
 
+Lingkungan Pengembangan (Penting!)
+	Proyek ini dikembangkan di macOS menggunakan server MAMP. Untuk pengguna yang menjalankan proyek ini di lingkungan Windows atau menggunakan server lain, mungkin perlu menyesuaikan konfigurasi database, terutama bagian password pada file Fuction/config.php , misalnya menghapus atau mengosongkan “ password=' ' “ jika tidak diperlukan.
+
 Deskripsi
 	SEA Salon adalah aplikasi web yang dirancang untuk membantu manajemen salon dalam mengelola layanan dan reservasi. Sistem ini menyediakan dashboard untuk pelanggan dan admin. Pelanggan dapat melakukan reservasi layanan salon, sedangkan admin dapat menambah dan mengelola cabang serta layanan yang ditawarkan.
 
@@ -26,9 +29,6 @@ Teknologi yang Digunakan
 	•	PHP (untuk pemrosesan login, registrasi, dan manajemen data)
 	•	MySQL (untuk penyimpanan data)
 	•	JSON (untuk pengambilan data asinkron dari server)
-
-Lingkungan Pengembangan (Penting!)
-	Proyek ini dikembangkan di macOS menggunakan server MAMP. Untuk pengguna yang menjalankan proyek ini di lingkungan Windows atau menggunakan server lain, mungkin perlu menyesuaikan konfigurasi database, terutama bagian password pada file Fuction/config.php , misalnya menghapus atau mengosongkan “ password=' ' “ jika tidak diperlukan.
 
 Catatan Tambahan
 Halaman pertama yang akan dilihat pengguna adalah index.php. Pengguna dapat menekan tombol “Click” untuk melakukan login atau registrasi.

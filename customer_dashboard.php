@@ -89,7 +89,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'customer') {
                 const branchSelect = document.getElementById('res-branch');
                 branchSelect.innerHTML = '';
                 data.forEach(branch => {
-                    branchSelect.innerHTML += `<option value="${branch.id}">${branch.name}</option>`;
+                    branchSelect.innerHTML += `<option value="${branch.branch_id}">${branch.branch_name}</option>`;
                 });
                 fetchServices(); // Memuat layanan berdasarkan cabang yang dipilih pertama kali
             })
@@ -106,8 +106,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'customer') {
                 servicesList.innerHTML = '';
                 serviceSelect.innerHTML = '';
                 data.forEach(service => {
-                    servicesList.innerHTML += `<div class='service-item'>${service.name} - ${service.duration} menit (${service.branch_name})</div>`;
-                    serviceSelect.innerHTML += `<option value="${service.name}">${service.name}</option>`;
+                    servicesList.innerHTML += `<div class='service-item'>${service.service_name} - ${service.duration} menit (${service.branch_name})</div>`;
+                    serviceSelect.innerHTML += `<option value="${service.name}">${service.service_name}</option>`;
                 });
             })
             .catch(error => console.error('Error:', error));
